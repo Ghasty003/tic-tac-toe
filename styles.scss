@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+$color: rgb(105, 45, 105);
+
+:root {
+    --color: rgb(105, 45, 105);
+}
+
+body {
+    background-color: rgb(255, 225, 229);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.father-container {
+    width: 500px;
+    height: 400px;
+    border: 20px solid pink;
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+.mother-container {
+    background-color: rgb(252, 240, 242);
+    width: 100%;
+    height: 100%;
+    box-shadow: 5px 5px 5px rgb(250, 149, 166), -5px 5px 5px rgb(250, 149, 166);
+    border-radius: 10px;
+    position: relative;
+
+    .intro {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        h1 {
+            color: $color;
+            animation: animate-header 1.5s;
+        }
+
+        .start-game {
+            animation: animate-start 1.5s;
+        }
+
+        .reset {
+            margin-top: 5px;
+            display: none;
+            animation: animate-reset 1s;
+            transition: all .5s;
+        }
+
+        button {
+            background-color: pink;
+            border: none;
+            padding: 10px;
+            border-radius: 15px;
+            margin-top: 20%;
+            cursor: pointer;
+            color: rgb(168, 21, 46);
+            box-shadow: 5px 5px 5px rgb(250, 149, 166);
+            transition: all .4s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .type {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+            animation: type 1.5s;
+            transition: all 1s;
+
+            h2 {
+                color: $color;
+            }
+        }
+    }
+
+    .image {
+
+        img {
+            width: 0px;
+            height: 100px;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            transition: all 1s;
+        }
+    }
+
+    .score {
+        width: 150px;
+        box-shadow: 5px 5px 5px rgb(250, 149, 166), 5px -2px 5px rgb(250, 149, 166);
+        position: absolute;
+        bottom: 6px;
+        display: none;
+        animation: animate-score 1s;
+
+        h4 {
+            text-align: center;
+        }
+        
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    .coming-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .coming {
+            background-color: rgb(236, 143, 174);
+            width: 250px;
+            margin: auto;
+            text-align: center;
+            height: 150px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px palevioletred, -5px 5px 5px palevioletred;
+            position: fixed;
+            top: 10%;
+            animation: coming-soon 2s;
+        }
+    }
+}
+
+.container {
+    display: none;
+    animation: game-area 1s;
+
+    .game-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 270px;
+
+        .box {
+            width: 80px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color);
+            border: 3px solid rebeccapurple;
+            font-size: 30px;
+        }
+    }
+}
+
+@keyframes animate-header {
+    from {
+        transform: translateX(-120px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animate-start {
+    from {
+        transform: translateX(100px);
+    } 
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes type {
+    from {
+        transform: translateY(100px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes game-area {
+    from {
+        transform: translateY(100px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes animate-reset {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animate-score {
+    from {
+        transform: translateX(-30px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes coming-soon {
+    from {
+        transform: translateY(300px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
